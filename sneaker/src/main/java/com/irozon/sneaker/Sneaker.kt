@@ -414,9 +414,11 @@ class Sneaker(private var context: Context) : View.OnClickListener, LifecycleObs
             val layoutParams = LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     if (mHeight == DEFAULT_VALUE && isActivity)
-                        Utils.getStatusBarHeight(it) + Utils.convertToDp(context, 56f)
+                        //Utils.getStatusBarHeight(it) + Utils.convertToDp(context, 56f)
+                        ViewGroup.LayoutParams.WRAP_CONTENT
                     else if (mHeight == DEFAULT_VALUE && !isActivity)
-                        Utils.convertToDp(context, 56f)
+                        //Utils.convertToDp(context, 56f)
+                        ViewGroup.LayoutParams.WRAP_CONTENT
                     else
                         Utils.convertToDp(context, mHeight.toFloat())
             )
@@ -444,7 +446,8 @@ class Sneaker(private var context: Context) : View.OnClickListener, LifecycleObs
             sneakerView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.popup_show))
             if (mAutoHide) {
                 val handler = Handler()
-                handler.removeCallbacks(null)
+                //handler.removeCallbacks(null)
+                handler.removeCallbacksAndMessages(null)
                 handler.postDelayed({
                     removeView(sneakerView)
                     mDismissListener?.onDismiss()
@@ -463,7 +466,8 @@ class Sneaker(private var context: Context) : View.OnClickListener, LifecycleObs
             sneakerView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.popup_show))
             if (mAutoHide) {
                 val handler = Handler()
-                handler.removeCallbacks(null)
+                //handler.removeCallbacks(null)
+                handler.removeCallbacksAndMessages(null)
                 handler.postDelayed({
                     removeView(sneakerView)
                     mDismissListener?.onDismiss()

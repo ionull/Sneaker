@@ -1,14 +1,13 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 35
+    namespace "com.irozon.sneakersample"
     defaultConfig {
         applicationId "com.irozon.sneakersample"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 35
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,6 +21,10 @@ android {
         abortOnError false
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
 }
 
 dependencies {
@@ -32,8 +35,8 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    //implementation project(':sneaker')
-    implementation 'com.irozon.sneaker:sneaker:2.0.0'
+    implementation project(':sneaker')
+    //implementation 'com.irozon.sneaker:sneaker:2.0.0'
 }
 repositories {
     mavenCentral()

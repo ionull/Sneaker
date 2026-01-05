@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.irozon.sneaker.Sneaker
-import kotlinx.android.synthetic.main.fragment_main.*
 
 class MainFragment : Fragment() {
     override fun onCreateView(
@@ -20,7 +19,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btShowWarning.setOnClickListener {
+        view.findViewById<View>(R.id.btShowWarning).setOnClickListener {
             Sneaker.with(this)
                     .setTitle("Warning!!")
                     .setCornerRadius(5, 5)
